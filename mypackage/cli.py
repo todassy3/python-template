@@ -2,12 +2,12 @@
 from __future__ import annotations
 
 
-def sample_func(arg: int, kwarg: int | None = None) -> int:
+def sample_func(val1: int, val2: int | None = None) -> int:
     """サンプル関数"""
-    if kwarg is None:
+    if val2 is None:
         raise ValueError("Sample value error")
 
-    return arg + kwarg
+    return val1 + val2
 
 
 def _main() -> None:
