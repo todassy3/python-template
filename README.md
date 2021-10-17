@@ -15,6 +15,11 @@ $ pip install -e .
 $ pip uninstall mypackage
 ```
 
+実行
+```sh
+$ mypackage
+```
+
 インポート
 ```sh
 import mypackage
