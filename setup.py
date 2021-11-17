@@ -47,10 +47,9 @@ setup(
     long_description=read_file("README.md"),
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=["tests"]),
-    package_data={"mypackage": ["settings.json"]},
+    include_package_data=True,
     install_requires=[],
     tests_require=["pytest", "pytest-cov", "pytest-randomly"],
     python_requires=">=3.7",
-    include_package_data=True,
     entry_points={"console_scripts": ["mypackage = mypackage.cli:_main"]},
 )
