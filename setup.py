@@ -20,19 +20,20 @@ def get_version(file: str) -> str:
     content = read_file(file)
     match = re.search(pattern, content, re.M)
     if match is None:
-        raise RuntimeError("Could not find version in _version.py")
+        raise RuntimeError("Could not find version the file '_version.py'")
 
-    version = match.groups()[0]
+    major, minor = match.groups()[0].split(".", 1)
 
     try:
-        git_rev_list = subprocess.run(
-            "git rev-list HEAD", shell=True, check=True, stdout=subprocess.PIPE
-        ).stdout.splitlines()
-        revision_no = len(git_rev_list)
+        cmd = ["git", "rev-list", "HEAD"]
+        proc = subprocess.run(cmd, text=True, check=True, capture_output=True)
+        git_rev_list = proc.stdout.splitlines()
+        revision = len(git_rev_list)
     except subprocess.CalledProcessError:
-        revision_no = 0
+        revision = 0
 
-    return f"{version}.{revision_no}"
+    version = ".".join([major, minor, str(revision)])
+    return version
 
 
 setup(
@@ -48,7 +49,8 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
-    install_requires=[],
+    # package_data={"": ["*.yaml"]},
+    # install_requires=["requests", "types-requests"],
     tests_require=["pytest", "pytest-cov", "pytest-randomly"],
     python_requires=">=3.7",
     entry_points={"console_scripts": ["mypackage = mypackage.cli:_main"]},
