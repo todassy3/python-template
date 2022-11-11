@@ -51,7 +51,7 @@ setup(
     include_package_data=True,
     # package_data={"": ["*.yaml"]},
     # install_requires=["requests", "types-requests"],
-    tests_require=["pytest", "pytest-cov", "pytest-randomly"],
+    tests_require=["pytest", "pytest-mock", "pytest-cov", "pytest-randomly"],
     python_requires=">=3.7",
     entry_points={"console_scripts": ["mypackage = mypackage.cli:_main"]},
 )
