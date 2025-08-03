@@ -1,6 +1,6 @@
-def _main() -> None:
-    print("hello world")
+def _main(arg: int) -> int:
+    return arg
 
 
 if __name__ == "__main__":
-    _main()
+    _main(1)
