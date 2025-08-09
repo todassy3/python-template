@@ -1,7 +1,7 @@
 {
     "python.testing.pytestArgs": [
         "tests",
-        "--cov=my_utils",
+        "--cov=mypackage",
         "--cov-branch",
     ],
     "python.testing.unittestEnabled": false,
