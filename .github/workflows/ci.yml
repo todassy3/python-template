@@ -39,4 +39,8 @@ jobs:
           uv run --frozen mypy . --exclude '^tests/' --strict --ignore-missing-imports
       - name: Test with pytest
         run: |
-          uv run --frozen pytest
+          uv run --frozen pytest tests --cov=my_utils --cov-branch --cov-report=xml
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

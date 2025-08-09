@@ -1,0 +1,9 @@
+{
+    "python.testing.pytestArgs": [
+        "tests",
+        "--cov=my_utils",
+        "--cov-branch",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
