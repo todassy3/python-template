@@ -26,13 +26,13 @@ $ pip uninstall python-template
 $ mise trust
 $ mise install
 $ pre-commit install
-$ pre-commit autoupdate
 $ uv sync --frozen --all-groups
 ```
 
 ### Manage Dependencies
 
 ```sh
+$ pre-commit autoupdate
 $ uv add <pkg>
 $ uv add <pkg> --dev
 $ uv remove <pkg>
