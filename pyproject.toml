@@ -1,0 +1,41 @@
+[project]
+name = "mypackage"
+version = "0.0.1"
+description = "Python package template"
+readme = "README.md"
+authors = [
+    {name = "todassy3"}
+]
+maintainers = [
+    {name = "todassy3"}
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/todassy3/python-template"
+
+[project.scripts]
+mypackage = "mypackage.main:_main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+    "pytest-mock>=3.14.0",
+    "pytest-randomly>=3.16.0",
+    "ruff>=0.11.11",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+exclude = ["^tests/"]
